@@ -1,6 +1,23 @@
+<div [@wildItemState]="wildState" style="width:80px;height:80px;"></div>
+<br />
+
+<div class="container">
+    <!-- <mat-form-field> -->
+      <input matInput name="item" placeholder="Masukan data" value="" [(ngModel)]="item">
+    <!-- </mat-form-field> -->
+  
+    <!-- <mat-form-field> -->
+        <button mat-raised-button color="primary" (click)="onAddAnimate_one(item)">Add 1</button>
+        <button mat-raised-button color="primary" (click)="onAddAnimate_two(item)">Add 2</button>
+    <!-- </mat-form-field> -->
+  </div>
+
 <mat-list>
   <h3 mat-subheader>List Data</h3>
-  <mat-list-item *ngFor="let item of data">
+  <mat-list-item
+   [@matItemState]="state"
+   [@list]
+    *ngFor="let item of data">
     <mat-icon mat-list-icon>folder</mat-icon>
     <h4 mat-line>{{item}}</h4>
   </mat-list-item>
