@@ -27,6 +27,8 @@
   <h3 mat-subheader>List Data</h3>
   <mat-list-item
    [@matItemState]="state"
+   (@matItemState.start)="onAnimationStart($event)"
+   (@matItemState.done)="onAnimationDone($event)"
    [@list]
     *ngFor="let item of data">
     <mat-icon mat-list-icon>folder</mat-icon>
