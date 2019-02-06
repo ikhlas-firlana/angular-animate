@@ -12,6 +12,17 @@
     <!-- </mat-form-field> -->
   </div>
 
+  <mat-list>
+    <h3 mat-subheader>List Data</h3>
+    <mat-list-item
+      [@matItemState]="state"
+      [@list2]
+      *ngFor="let item of data">
+      <mat-icon mat-list-icon>folder</mat-icon>
+      <h4 mat-line>{{item}}</h4>
+    </mat-list-item>
+  </mat-list>
+
 <mat-list>
   <h3 mat-subheader>List Data</h3>
   <mat-list-item

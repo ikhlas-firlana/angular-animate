@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
 @Component({
   selector: 'app-form',
@@ -70,6 +70,36 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
           transform: 'translateX(-100px)',
         }),
         animate(600)
+      ]),
+      transition('* => void', [
+        animate(600, style({
+          transform: 'translateX(100px)',
+          opacity: 0,
+        }))
+      ])
+    ]),
+    trigger('list2', [
+      //
+      state('in', style({
+        opacity: 1,
+        transform: 'translateX(0)',
+      })),
+      transition('void => *', [
+        animate(1000, keyframes([
+          style({
+            transform: 'translateX(-100px)',
+            opacity: 0,
+          }),
+          style({
+            transform: 'translateX(-50px)',
+            background: 'grey',
+            opacity: 0,
+          }),
+          style({
+            transform: 'translateX(-20px)',
+            opacity: 1,
+          })
+        ]))
       ]),
       transition('* => void', [
         animate(600, style({
